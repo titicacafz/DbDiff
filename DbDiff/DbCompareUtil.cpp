@@ -179,7 +179,7 @@ DbCompareUtil::DiffList DbCompareUtil::compare_index(CompareContext & context)
         CompareDiff diff;
         auto& second = v.second;
         //忽略列表的索引不比较
-        if (context.ignore_list.find(second.table_name) == context.ignore_list.end()) {
+        if (context.ignore_list.find(second.table_name) != context.ignore_list.end()) {
             continue;
         }
 
