@@ -14,7 +14,7 @@ DbHelper::TableList DbHelper::get_table_and_views(const std::set<std::string>& o
         //1表结构比较
         soci::rowset<TableMeta> rs = (
             sql.prepare
-            << "select * from all_tab_comments where owner = :owner and table_type='TABLE' order by table_name", soci::use(owner)
+            << "select * from all_tab_comments where owner = :owner and (table_type='TABLE' or table_type='VIEW') order by table_name", soci::use(owner)
             );
 
         //记录遍历       
